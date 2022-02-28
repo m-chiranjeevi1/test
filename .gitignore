@@ -1,0 +1,4 @@
+
+*.class
+*.bashrc
+.m2/**
