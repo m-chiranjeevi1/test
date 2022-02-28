@@ -1,0 +1,8 @@
+*.extension_name: 
+
+For example *.txt and *.log can be used to match ALL the files that have .txt and .log as their extension respectively.
+
+**/any_name: It is used to match any file or directory with the name any_name.
+
+
+any_name/**: It is used to match anything that is inside the directory of the name any_name. for example webdev/** matches all the files inside webdev directory.

@@ -1,0 +1,38 @@
+---
+- name: playbook
+  hosts: all
+  become: yes
+
+  vars:
+     greeting: hello world!
+  tasks:
+  -  name: creating a new directory
+     file:
+       path: "/home/plabadmin/playbook"
+       state: directory
+  -  name: deploy greeting
+     copy:
+       dest: "/home/plabadmin/playbook"
+       content: "{{greeting}}"
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       ---
+-  name: text
+   hosts: webservers
+   tasks:
+   -  name: install apache2
+      apt.name=apache2 update_cache=yes state=latest
+   notify:
+   -  restart apache2
+   handlers:
+   -  name: restart apache2
+      service: name=apache2 state=restarted

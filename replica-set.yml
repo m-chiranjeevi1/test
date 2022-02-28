@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+ name: tomcat-rs
+ labels:
+  author: chiru
+  type: webserver
+spec:
+ replicas: 5
+ selector:
+  matchLabels:
+   type: webserver
+ template:
+  metadata:
+   name: tomcat-pod
+   labels:
+    author: chiru
+    type: webserver
+  spec:
+   containers:
+    - name: tomee
+      image: tomcat
+      ports:
+       - containerPort: 8080
+         hostPort: 9090
+...
